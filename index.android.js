@@ -3,7 +3,7 @@ import {AppRegistry} from 'react-native';
 
 import AppNavigator from './app/navigation/AppNavigator'
 
-export default class myapp extends Component {
+export default class ReactNativeIntro extends Component {
     render() {
         return (
             <AppNavigator/>
@@ -11,4 +11,4 @@ export default class myapp extends Component {
     }
 }
 
-AppRegistry.registerComponent('myapp', () => myapp);
+AppRegistry.registerComponent('ReactNativeIntro', () => ReactNativeIntro);
