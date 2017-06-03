@@ -1,6 +1,6 @@
 'use strict';
 import React, {Component} from 'react';
-import {Text, TouchableOpacity} from 'react-native';
+import {Text, Image, TouchableOpacity} from 'react-native';
 import _ from "lodash";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -14,20 +14,26 @@ class PersonShowScreen extends Component {
         drawerLabel: (<DrawerItem icon="user" />)
     });
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const { params } = this.props.navigation.state;
         const person = params.person;
+        //const personImage = require(person.photo);
         return (
             <ViewContainer>
                 <TouchableOpacity onPress={this._navigateToPeopleList.bind(this)}>
-                    <Icon name="chevron-left" size={15} color="#900"/>
+                    <Icon name="chevron-left" size={20} style={{margin: 15}} color="#900"/>
                 </TouchableOpacity>
-                <Text style={{marginTop: 10, fontSize: 20}}>{`PERSON DETAIL SCREEN`}</Text>
-                <Text style={styles.personName}>{_.capitalize(person.firstName)} {_.capitalize(person.lastName)}</Text>
+                <Text style={{marginTop: 10, textAlign: "center", fontSize: 20}}>{`PERSON DETAIL SCREEN`}</Text>
+                <Image
+                    style={{
+                        width: 120,
+                        height: 120,
+                        backgroundColor: 'transparent',
+                        margin: 20,
+                    }}
+                    source={[ {uri: person.photo} ]}
+                />
+                <Text style={styles.personName}>{_.capitalize(person.name)} {_.capitalize(person.surname)}</Text>
             </ViewContainer>
         );
     }
